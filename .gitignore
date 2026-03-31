@@ -25,3 +25,8 @@ Recordings/
 
 .DS_Store
 Thumbs.db
+
+# ===UVC===
+
+.plastic/
+ignore.conf
