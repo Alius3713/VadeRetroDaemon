@@ -12,9 +12,9 @@ namespace _Project.Scripts.Player.Input
         private InputAction _interactAction;
         
         public Vector2 MoveInput { get;  private set; }
+        public event Action OnInteractPressed;
+        public event Action OnInteractHeld;
         
-        public bool InteractPressed { get; private set; }
-
         private void Awake()
         {
             _moveAction = InputSystem.actions.FindAction("Move");
@@ -35,8 +35,7 @@ namespace _Project.Scripts.Player.Input
             _moveAction.performed += OnMove;
             _moveAction.canceled += OnMove;
             
-            _interactAction.performed += OnInteractPerformed;
-            _interactAction.canceled += OnInteractCanceled;
+            _interactAction.performed += OnInteract;
         }
         
         private void OnDestroy()
@@ -49,8 +48,7 @@ namespace _Project.Scripts.Player.Input
 
             if (_interactAction != null)
             {
-                _interactAction.performed -= OnInteractPerformed;
-                _interactAction.canceled -= OnInteractCanceled;
+                _interactAction.performed -= OnInteract;
             }
         }
 
@@ -65,20 +63,21 @@ namespace _Project.Scripts.Player.Input
             MoveInput = obj.action.ReadValue<Vector2>();
         }
 
-        private void OnInteractPerformed(InputAction.CallbackContext obj)
+        private void OnInteract(InputAction.CallbackContext obj)
         {
-            if (InputLock.Occupied)
+            if (InputLock.Occupied) return;
+
+            if (obj.interaction is PressInteraction)
             {
-                InteractPressed = false;
-                return;
+                Debug.Log("input helper: interaction pressed");
+                OnInteractPressed?.Invoke();
             }
 
-            InteractPressed = true;
-        }
-
-        private void OnInteractCanceled(InputAction.CallbackContext obj)
-        {
-            InteractPressed = false;
+            if (obj.interaction is HoldInteraction)
+            {
+                Debug.Log("input helper: interaction held");
+                OnInteractHeld?.Invoke();
+            }
         }
 
         private void LateUpdate()
@@ -86,7 +85,6 @@ namespace _Project.Scripts.Player.Input
             if (!InputLock.Occupied) return;
             
             MoveInput = Vector2.zero;
-            InteractPressed = false;
         }
     }
 }
