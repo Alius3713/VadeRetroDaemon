@@ -17,3 +17,6 @@ MonoBehaviour:
   description: Weird demon, reacts with pain to contact with holly water.
   traits:
   - {fileID: 11400000, guid: a986c83d9338cd94cad60b10de45df3e, type: 2}
+  - {fileID: 11400000, guid: 947ad9aefb0b0b1469fd538dea5f62d6, type: 2}
+  - {fileID: 11400000, guid: cb712db0b62856e4e9963181df334186, type: 2}
+  isKnownByDefault: 1

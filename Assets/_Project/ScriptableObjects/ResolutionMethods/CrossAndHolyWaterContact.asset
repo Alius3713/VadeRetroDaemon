@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5facebe82d26eea4099f68418266ebf7, type: 3}
+  m_Name: CrossAndHolyWaterContact
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Preparation.ResolutionMethodDefinition
+  methodID: M05
+  displayName: Cross and Holy Water Contact
+  description: Exorcism by contact with cross anointed with holy water.
+  requiredTools:
+  - {fileID: 11400000, guid: a63caa7f6dcdcd24fb9f1e6c7efba532, type: 2}
+  - {fileID: 11400000, guid: 92c469595dc9652469b2067490c06158, type: 2}
+  supportedResolutionTraits:
+  - {fileID: 11400000, guid: ac9bc868d1dbe0e458398af6e0fa27cd, type: 2}
+  - {fileID: 11400000, guid: cb712db0b62856e4e9963181df334186, type: 2}
