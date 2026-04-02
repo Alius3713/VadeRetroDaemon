@@ -6,7 +6,7 @@ namespace _Project.Scripts.Core.Data.Investigation
     public class ClueNotebookEntry
     {
         public ClueFragmentDefinition SourceClue;
-        public TraitDefinition AssignedTait;
+        public TraitDefinition AssignedTrait;
         public ClueEvaluationState EvaluationState;
     }
 }

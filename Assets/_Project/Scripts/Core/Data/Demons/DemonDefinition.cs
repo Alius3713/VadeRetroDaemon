@@ -10,10 +10,12 @@ namespace _Project.Scripts.Core.Data.Demons
         [SerializeField] private string displayName;
         [SerializeField][TextArea]  private string description;
         [SerializeField] private List<TraitDefinition> traits = new();
+        [SerializeField] private bool isKnownByDefault = true;
 
         public string DemonID => demonID;
         public string DisplayName => displayName;
         public string Description => description;
         public IReadOnlyList<TraitDefinition> Traits => traits;
+        public bool IsKnownByDefault => isKnownByDefault;
     }
 }

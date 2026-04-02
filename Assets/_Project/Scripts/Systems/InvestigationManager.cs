@@ -39,15 +39,15 @@ namespace _Project.Scripts.Systems
             if (_currentInvestigationState == null) return;
             if (_currentInvestigationNotebook == null) return;
             
-            bool alreadtDiscovered = _currentInvestigationState.DiscoveredClues.Contains(clueFragment);
-            if (alreadtDiscovered) return;
+            bool alreadyDiscovered = _currentInvestigationState.DiscoveredClues.Contains(clueFragment);
+            if (alreadyDiscovered) return;
             
             _currentInvestigationState.AddClue(clueFragment);
 
             ClueNotebookEntry newEntry = new ClueNotebookEntry
             {
                 SourceClue = clueFragment,
-                AssignedTait = null,
+                AssignedTrait = null,
                 EvaluationState = ClueEvaluationState.Unsure
             };
             
@@ -67,7 +67,8 @@ namespace _Project.Scripts.Systems
             ClueNotebookEntry entry = GetNotebookEntryForClue(clueFragment);
             if (entry == null) return;
             
-            entry.AssignedTait = trait;
+            entry.AssignedTrait = trait;
+            Debug.Log("InvestigationManager -> OnNotebookEntryUpdated invoked");
             OnNotebookEntryUpdated?.Invoke(entry);
         }
 
@@ -77,6 +78,7 @@ namespace _Project.Scripts.Systems
             if (entry == null) return;
             
             entry.EvaluationState = evaluationState;
+            Debug.Log("InvestigationManager -> OnNotebookEntryUpdated invoked");
             OnNotebookEntryUpdated?.Invoke(entry);
         }
 

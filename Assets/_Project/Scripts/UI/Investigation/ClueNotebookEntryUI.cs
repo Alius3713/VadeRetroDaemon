@@ -62,11 +62,11 @@ namespace _Project.Scripts.UI.Investigation
 
             int currentIndex = 0;
 
-            if (_entry != null && _entry.AssignedTait != null)
+            if (_entry != null && _entry.AssignedTrait != null)
             {
                 for (int i = 0; i < _availableTraits.Count; i++)
                 {
-                    if (_availableTraits[i] == _entry.AssignedTait)
+                    if (_availableTraits[i] == _entry.AssignedTrait)
                     {
                         currentIndex = i + 1;
                         break;
