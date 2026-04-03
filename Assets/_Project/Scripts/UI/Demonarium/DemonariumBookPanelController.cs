@@ -1,4 +1,5 @@
 using _Project.Scripts.Core;
+using _Project.Scripts.UI.Preparation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,9 +9,12 @@ namespace _Project.Scripts.UI.Demonarium
     {
         [SerializeField] private GameObject demonariumBookPanel;
         [SerializeField] private DemonariumBookUI demonariumBookUI;
+        [SerializeField] private PreparationPanelController preparationPanelController;
         
         private InputAction _toggleDemonariumAction;
         private bool _isOpen;
+        
+        public bool IsOpen => _isOpen;
         
         private void Awake()
         {
@@ -62,6 +66,11 @@ namespace _Project.Scripts.UI.Demonarium
             if (_isOpen) return;
             if (demonariumBookPanel == null) return;
 
+            if (preparationPanelController != null && preparationPanelController.IsOpen)
+            {
+                preparationPanelController.ClosePrepWindow();
+            }
+            
             demonariumBookPanel.SetActive(true);
             InputLock.SetOccupied(true);
             _isOpen = true;

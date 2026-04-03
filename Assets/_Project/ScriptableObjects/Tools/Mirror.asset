@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mirror
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Tools.ToolDefinition
   toolID: T03
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   displayName: Mirror
   description: Small hand mirror - is there your reflection?
   isUnlockedByDefault: 1

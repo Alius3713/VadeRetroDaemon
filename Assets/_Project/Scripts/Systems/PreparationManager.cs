@@ -41,28 +41,60 @@ namespace _Project.Scripts.Systems
             OnPreparationChanged?.Invoke();
         }
 
-        public bool TryAddTool(ToolDefinition tool)
+        // public bool TryAddTool(ToolDefinition tool)
+        // {
+        //     if (_currentLoadout == null) return false;
+        //     
+        //     bool added = _currentLoadout.TryAddTool(tool);
+        //     if (!added) return false;
+        //     
+        //     OnPreparationChanged?.Invoke();
+        //     return true;
+        // }
+        //
+        // public bool RemoveTool(ToolDefinition tool)
+        // {
+        //     if (_currentLoadout == null) return false;
+        //     
+        //     bool removed = _currentLoadout.RemoveTool(tool);
+        //     if (!removed) return false;
+        //     
+        //     OnPreparationChanged?.Invoke();
+        //     return true;
+        // }
+
+        public bool TryAssignToolToSlot(ToolDefinition tool, int slotIndex)
+        {
+            if (_currentLoadout == null) return false;
+            bool assigned = _currentLoadout.TryAssignToolToSlot(tool, slotIndex);
+            if (!assigned) return false;
+            
+            OnPreparationChanged?.Invoke();
+            return true;
+        }
+
+        public bool TryAddToolToFirstEmptySlot(ToolDefinition tool)
         {
             if (_currentLoadout == null) return false;
             
-            bool added = _currentLoadout.TryAddTool(tool);
+            bool added = _currentLoadout.TryAddTooFirstEmptySlot(tool);
             if (!added) return false;
             
             OnPreparationChanged?.Invoke();
             return true;
         }
 
-        public bool RemoveTool(ToolDefinition tool)
+        public bool RemoveToolFromSlot(int slotIndex)
         {
             if (_currentLoadout == null) return false;
             
-            bool removed = _currentLoadout.RemoveTool(tool);
+            bool removed = _currentLoadout.RemoveToolFromSlot(slotIndex);
             if (!removed) return false;
             
             OnPreparationChanged?.Invoke();
             return true;
         }
-
+        
         public void SetSelectedMethod(ResolutionMethodDefinition method)
         {
             if (_currentLoadout == null) return;
