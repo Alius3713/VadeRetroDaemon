@@ -77,7 +77,7 @@ namespace _Project.Scripts.Systems
         {
             if (_currentLoadout == null) return false;
             
-            bool added = _currentLoadout.TryAddTooFirstEmptySlot(tool);
+            bool added = _currentLoadout.TryAddToolToFirstEmptySlot(tool);
             if (!added) return false;
             
             OnPreparationChanged?.Invoke();

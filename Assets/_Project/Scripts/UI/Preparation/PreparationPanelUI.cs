@@ -66,34 +66,70 @@ namespace _Project.Scripts.UI.Preparation
         public void HandleCollectionToolClicked(ToolDefinition tool)
         {
             if (tool == null) return;
+            if (PreparationManager.Instance == null) return;
+            
+            PreparationLoadout loadout = PreparationManager.Instance.CurrentLoadout;
+            if (loadout == null) return;
+            
+            bool isCurrentlySelected = _selectedCollectionTool == tool;
+            bool isAlreadyInLoadout = loadout.ContainsTool(tool);
 
-            if (_selectedCollectionTool != tool)
+            if (!isCurrentlySelected)
             {
                 _selectedCollectionTool = tool;
                 RefreshCollectionSelectionVisuals();
                 return;
             }
 
-            if (PreparationManager.Instance != null)
+            if (isAlreadyInLoadout)
             {
-                PreparationManager.Instance.TryAddToolToFirstEmptySlot(tool);
+                _selectedCollectionTool = null;
+                RefreshCollectionSelectionVisuals();
+                return;
             }
-
+            
+            bool added = PreparationManager.Instance.TryAddToolToFirstEmptySlot(tool);
+            
+            if (!added) _selectedCollectionTool = null;
+            
             RefreshCollectionSelectionVisuals();
         }
 
+        public bool TryPlaceToolIntoSlot(ToolDefinition tool, int slotIndex)
+        {
+            if (PreparationManager.Instance == null) return false;
+            if (tool == null) return false;
+            
+            return PreparationManager.Instance.TryAssignToolToSlot(tool, slotIndex);
+        }
+        
         public bool TryRemoveToolFromSlot(int slotIndex)
         {
             if (PreparationManager.Instance == null) return false;
             
             return PreparationManager.Instance.RemoveToolFromSlot(slotIndex);
         }
+        
+        public ToolDefinition GetToolInSlot(int slotIndex)
+        {
+            if (PreparationManager.Instance == null) return null;
+            if (PreparationManager.Instance.CurrentLoadout == null) return null;
 
+            return PreparationManager.Instance.CurrentLoadout.GetToolInSlot(slotIndex);
+        }
+        
         public void HandleMethodClicked(ResolutionMethodDefinition method)
         {
             if (PreparationManager.Instance == null) return;
-            if (method == null) return;
             
+            ResolutionMethodDefinition currentlySelectedMethod = PreparationManager.Instance.CurrentLoadout.SelectedMethod;
+            if (currentlySelectedMethod == method)
+            {
+                PreparationManager.Instance.SetSelectedMethod(null);
+                return;
+            }
+            
+            if (method == null) return;
             PreparationManager.Instance.SetSelectedMethod(method);
         }
 
@@ -290,6 +326,14 @@ namespace _Project.Scripts.UI.Preparation
             }
             
             _spawnedMethodItems.Clear();
+        }
+
+        public void ClearSelectedToolIfMatches(ToolDefinition tool)
+        {
+            if (_selectedCollectionTool != tool) return;
+            
+            _selectedCollectionTool = null;
+            RefreshCollectionSelectionVisuals();
         }
     }
 }

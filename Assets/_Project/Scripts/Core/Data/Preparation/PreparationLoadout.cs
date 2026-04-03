@@ -124,7 +124,7 @@ namespace _Project.Scripts.Core.Data.Preparation
             return true;
         }
 
-        public bool TryAddTooFirstEmptySlot(ToolDefinition tool)
+        public bool TryAddToolToFirstEmptySlot(ToolDefinition tool)
         {
             if (tool == null) return false;
             if (ContainsTool(tool)) return false;
