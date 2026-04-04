@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99450dda7575efd42891098983692d63, type: 3}
-  m_Name: Test_demon
+  m_Name: MinorDemon
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Demons.DemonDefinition
-  demonID: D01
-  displayName: Test Demon
-  description: Weird demon, reacts with pain to contact with holy water.
+  demonID: D02
+  displayName: Minor Demon
+  description: Small crippled creature possessing mentaly weak hosts. It is said
+    it can be captured with mirror when the host looks in it.
   traits:
+  - {fileID: 11400000, guid: e475638ab49f84648846a69d43817921, type: 2}
+  - {fileID: 11400000, guid: 73e83e3147d09fa4babb0bbf8b28b1dd, type: 2}
   - {fileID: 11400000, guid: a986c83d9338cd94cad60b10de45df3e, type: 2}
-  - {fileID: 11400000, guid: 947ad9aefb0b0b1469fd538dea5f62d6, type: 2}
-  - {fileID: 11400000, guid: cb712db0b62856e4e9963181df334186, type: 2}
-  - {fileID: 11400000, guid: ef021190cc8ccc5458801bb6944e1b9c, type: 2}
   isKnownByDefault: 1

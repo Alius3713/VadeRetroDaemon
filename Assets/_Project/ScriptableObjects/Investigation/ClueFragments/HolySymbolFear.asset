@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d2906b8de1756448fc4d043c5b2959, type: 3}
+  m_Name: HolySymbolFear
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Investigation.ClueFragmentDefinition
+  clueFragmentID: CF02
+  displayName: Fear of holy symbols
+  description: Occurs noticeable aversion to holy symbols presence. Especially to
+    cross.
+  traitLinks:
+  - trait: {fileID: 11400000, guid: ef021190cc8ccc5458801bb6944e1b9c, type: 2}
+    impactType: 0
+  isMisleading: 0

@@ -144,10 +144,8 @@ namespace _Project.Scripts.Systems
 
         public void ClearAndReinitialize()
         {
-            _currentLoadout = null;
-            OnPreparationCleared?.Invoke();
-            
             InitializePreparation();
+            OnPreparationCleared?.Invoke();
         }
     }
 }

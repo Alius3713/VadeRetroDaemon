@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99450dda7575efd42891098983692d63, type: 3}
-  m_Name: Test_demon
+  m_Name: Nocturnal
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Demons.DemonDefinition
-  demonID: D01
-  displayName: Test Demon
-  description: Weird demon, reacts with pain to contact with holy water.
+  demonID: D03
+  displayName: Nocturnal
+  description: It appears only at night. It sends nightmares to its victims. Lacks
+    reflection in the mirror. Manifests as a shadow.
   traits:
-  - {fileID: 11400000, guid: a986c83d9338cd94cad60b10de45df3e, type: 2}
+  - {fileID: 11400000, guid: dbbf9f72ac488994e84d4fd8c5d0d882, type: 2}
   - {fileID: 11400000, guid: 947ad9aefb0b0b1469fd538dea5f62d6, type: 2}
-  - {fileID: 11400000, guid: cb712db0b62856e4e9963181df334186, type: 2}
-  - {fileID: 11400000, guid: ef021190cc8ccc5458801bb6944e1b9c, type: 2}
+  - {fileID: 11400000, guid: 7ce944a3cd15aae4bbdef68a13dd78a9, type: 2}
+  - {fileID: 11400000, guid: 45021adaf16173b429cf0fa4f4bed50d, type: 2}
   isKnownByDefault: 1
