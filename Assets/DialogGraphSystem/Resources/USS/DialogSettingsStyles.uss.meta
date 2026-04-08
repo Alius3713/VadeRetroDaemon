@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4968455971c6b1648b14b0411daa4120
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 12385, guid: 0000000000000000e000000000000000, type: 0}
+  disableValidation: 0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332234
+  packageName: Dialog Graph System
+  packageVersion: 1.4.0
+  assetPath: Assets/DialogGraphSystem/Resources/USS/DialogSettingsStyles.uss
+  uploadId: 821662

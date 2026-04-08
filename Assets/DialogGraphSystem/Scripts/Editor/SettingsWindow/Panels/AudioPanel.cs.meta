@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8dc3461204641674f9f6d27343b3f60e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332234
+  packageName: Dialog Graph System
+  packageVersion: 1.4.0
+  assetPath: Assets/DialogGraphSystem/Scripts/Editor/SettingsWindow/Panels/AudioPanel.cs
+  uploadId: 821662

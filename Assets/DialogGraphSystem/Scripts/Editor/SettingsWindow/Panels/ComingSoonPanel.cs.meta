@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 06de1a1b056c36040956588e607cd3e9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332234
+  packageName: Dialog Graph System
+  packageVersion: 1.4.0
+  assetPath: Assets/DialogGraphSystem/Scripts/Editor/SettingsWindow/Panels/ComingSoonPanel.cs
+  uploadId: 821662

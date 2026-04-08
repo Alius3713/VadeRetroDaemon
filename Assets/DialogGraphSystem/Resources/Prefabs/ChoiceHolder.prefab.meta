@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b63451949254b6b4aae8c4d27bb19c53
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332234
+  packageName: Dialog Graph System
+  packageVersion: 1.4.0
+  assetPath: Assets/DialogGraphSystem/Resources/Prefabs/ChoiceHolder.prefab
+  uploadId: 821662
