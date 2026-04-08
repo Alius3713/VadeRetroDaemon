@@ -6,6 +6,7 @@ namespace _Project.Scripts.Camera
     public class CameraFollow2D : MonoBehaviour
     {
         [SerializeField] private Transform target;
+        [SerializeField] private CameraBounds2D cameraBounds;
         [SerializeField] private PlayerController2D playerController;
         [SerializeField] private float smoothTime = 0.1f;
         [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
@@ -41,7 +42,14 @@ namespace _Project.Scripts.Camera
             }
             
             Vector3 targetPosition = currentTargetPosition + offset + lookAheadOffset;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);
+            Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);
+
+            if (cameraBounds)
+            {
+                smoothedPosition = cameraBounds.ClampPosition(smoothedPosition);
+            }
+            
+            transform.position = smoothedPosition;
             _previousTargetPosition = currentTargetPosition;
         }
     }
