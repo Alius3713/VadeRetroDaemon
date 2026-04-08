@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Project.Scripts.Dialogue;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.Data.NPC
@@ -8,10 +9,10 @@ namespace _Project.Scripts.Core.Data.NPC
     {
         [SerializeField] private string npcID;
         [SerializeField] private string displayName;
-        [SerializeField] private List<string> dialoguesIds;
+        [SerializeField] private List<NpcDialogueStep> dialogueSteps = new();
         
         public string NpcID => npcID;
         public string DisplayName => displayName;
-        public IReadOnlyList<string> DialoguesIds => dialoguesIds;
+        public IReadOnlyList<NpcDialogueStep> DialogueSteps => dialogueSteps;
     }
 }

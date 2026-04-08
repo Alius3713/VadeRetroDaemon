@@ -72,7 +72,7 @@ namespace _Project.Scripts.Systems
         public bool IsCurrentObjective(string objectiveID)
         {
             if (_currentGuideProgress == null) return false;
-            if (_currentGuideProgress.CurrentObjective == null) return false;
+            if (!_currentGuideProgress.CurrentObjective) return false;
             
             return _currentGuideProgress.CurrentObjective.ObjectiveID == objectiveID;
         }

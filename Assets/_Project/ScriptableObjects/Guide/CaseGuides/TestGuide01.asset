@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ef4d3463f66d4b4583c645963f032b3, type: 3}
-  m_Name: Test_Guide
+  m_Name: TestGuide01
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Guide.CaseGuideDefinition
   guideID: CG00
-  displayName: TEST GUIDE CHECK
+  displayName: case guide check
   objectives:
   - {fileID: 11400000, guid: 534af01be29fac4418d0d664637030a0, type: 2}
+  - {fileID: 11400000, guid: 4320f4378ff10774fa8cc573990a0c52, type: 2}
+  - {fileID: 11400000, guid: 847c42a7b2c5bd944a53caa3b9248fb4, type: 2}

@@ -4,7 +4,7 @@ namespace _Project.Scripts.Dialogue
 {
     public interface IDialogService
     {
-        void PlayDialog(string dialogId, Action onDialogEnded = null);
+        void PlayDialog(string dialogId, Action onDialogFinished = null);
         bool IsDialogPlaying { get; }
     }
 }

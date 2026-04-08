@@ -14,5 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.NPC.NpcDefinition
   npcID: NPC00
   displayName: Test NPC
-  dialoguesIds:
-  - Dlg00
+  dialogueSteps:
+  - dialogId: Dlg00
+    playOnlyOnce: 1
+    loopUntilConditionMet: 0
+    requiredObjectiveIdToAdvance: 
+  - dialogId: Dlg01
+    playOnlyOnce: 0
+    loopUntilConditionMet: 1
+    requiredObjectiveIdToAdvance: GO01
+  - dialogId: Dlg02
+    playOnlyOnce: 1
+    loopUntilConditionMet: 0
+    requiredObjectiveIdToAdvance: 

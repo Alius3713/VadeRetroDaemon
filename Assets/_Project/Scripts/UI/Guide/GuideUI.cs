@@ -12,13 +12,18 @@ namespace _Project.Scripts.UI.Guide
         [SerializeField] private TextMeshProUGUI objectiveDescriptionText;
         [SerializeField] private GameObject panelRoot;
 
-        private void Awake()
+        private void Start()
         {
             SubscribeToEvents();
             Refresh();
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            Refresh();
+        }
+
+        private void OnDisable()
         {
             UnsubscribeFromEvents();
         }
@@ -97,7 +102,7 @@ namespace _Project.Scripts.UI.Guide
 
         private void SetEmpty()
         {
-            if (panelRoot != null) panelRoot.SetActive(false);
+            // if (panelRoot != null) panelRoot.SetActive(false);
             if (objectiveTitleText != null) objectiveTitleText.text = string.Empty;
             if (objectiveDescriptionText != null) objectiveDescriptionText.text = string.Empty;
         }

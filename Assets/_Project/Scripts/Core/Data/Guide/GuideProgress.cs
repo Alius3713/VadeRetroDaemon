@@ -18,7 +18,7 @@ namespace _Project.Scripts.Core.Data.Guide
         {
             get
             {
-                if (_guideDefinition == null) return null;
+                if (!_guideDefinition) return null;
                 if (_currentObjectiveIndex < 0 || _currentObjectiveIndex >= _guideDefinition.Objectives.Count) return null;
                 
                 return _guideDefinition.Objectives[_currentObjectiveIndex];
@@ -29,7 +29,7 @@ namespace _Project.Scripts.Core.Data.Guide
         {
             get
             {
-                if (_guideDefinition == null) return true;
+                if (!_guideDefinition) return true;
                 return _currentObjectiveIndex >= _guideDefinition.Objectives.Count;
             }
         }
@@ -37,7 +37,7 @@ namespace _Project.Scripts.Core.Data.Guide
         public bool TryAdvance(string completedObjectiveID)
         {
             GuideObjectiveDefinition currentObjective = CurrentObjective;
-            if (currentObjective == null) return false;
+            if (!currentObjective) return false;
             if (currentObjective.ObjectiveID != completedObjectiveID) return false;
             
             _currentObjectiveIndex++;

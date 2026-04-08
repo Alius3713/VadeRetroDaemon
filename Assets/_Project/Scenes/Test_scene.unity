@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 43722288}
   - component: {fileID: 43722287}
   - component: {fileID: 43722286}
-  - component: {fileID: 43722285}
+  - component: {fileID: 43722290}
   m_Layer: 3
   m_Name: BlueNpc
   m_TagString: Untagged
@@ -150,20 +150,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &43722285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43722284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd05f34ec09a5f74aa6664188d47324b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Guide.GuideObjectiveReporter
-  objectiveID: GO00
-  reportOnlyOnce: 1
 --- !u!114 &43722286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Interactions.NpcInteractable
   npcDefinition: {fileID: 11400000, guid: 68ab9580db1f7244b8022391771a8d46, type: 2}
-  objectiveReporter: {fileID: 43722285}
 --- !u!70 &43722287
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -289,6 +274,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43722290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43722284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd05f34ec09a5f74aa6664188d47324b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Guide.GuideObjectiveReporter
+  objectiveID: GO00
+  reportOnlyOnce: 1
 --- !u!1 &370858582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,11 +1406,47 @@ PrefabInstance:
     - target: {fileID: 1486834779417012119, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: startingGuide
       value: 
-      objectReference: {fileID: 11400000, guid: 1b30bb8fd7b27db43bc419c245b1133b, type: 2}
+      objectReference: {fileID: 11400000, guid: 3d2b05b99b81aa14595c1552195bab7b, type: 2}
+    - target: {fileID: 4570299771528981142, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: guideUIPanelRoot
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570299771528981142, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: notebookUIPanelRoot
+      value: 
+      objectReference: {fileID: 1893825316900439002}
     - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: uiPanel
       value: 
       objectReference: {fileID: 30218192}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.data[0].dialogID
+      value: Dlg00
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.data[1].dialogID
+      value: Dlg01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.data[2].dialogID
+      value: Dlg02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.data[0].dialogGraph
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f5ce1bf264d09e49a9116078f3003a7, type: 2}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.data[1].dialogGraph
+      value: 
+      objectReference: {fileID: 11400000, guid: a3614f0c58931154eb56db645bb2280c, type: 2}
+    - target: {fileID: 5923301417075416441, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: dialogGraphs.Array.data[2].dialogGraph
+      value: 
+      objectReference: {fileID: 11400000, guid: 15c1cf8c66a9a00478cef6e40219a703, type: 2}
     - target: {fileID: 6089076816365555687, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.41921
@@ -1452,11 +1487,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: guideUIPanelRoot
+      value: 
+      objectReference: {fileID: 1893825316900439003}
+    - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: notebookUIPanelRoot
+      value: 
+      objectReference: {fileID: 1893825316900439002}
     - target: {fileID: 8422396030422929107, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: m_Name
       value: ManagementRoot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].actionId
+      value: ReportTalk01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 43722290}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReportObjective
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _Project.Scripts.Core.Data.Guide.GuideObjectiveReporter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4570299771528981142, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1575,6 +1655,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
+--- !u!1 &1893825316900439002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6855150791400022414, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
+  m_PrefabInstance: {fileID: 1893825316900439001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1893825316900439003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9101088696562508365, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
+  m_PrefabInstance: {fileID: 1893825316900439001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1994309638437348372
 Rigidbody2D:
   serializedVersion: 5
