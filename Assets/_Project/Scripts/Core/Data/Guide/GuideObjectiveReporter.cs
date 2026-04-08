@@ -9,6 +9,8 @@ namespace _Project.Scripts.Core.Data.Guide
         [SerializeField] private bool reportOnlyOnce = true;
         
         private bool _hasReported;
+        
+        public string  ObjectiveID => objectiveID;
 
         public void ReportObjective()
         {

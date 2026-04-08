@@ -12,38 +12,54 @@ namespace _Project.Scripts.Interactions
         [SerializeField] private NpcDefinition npcDefinition;
 
         private int _currentDialogueStepIndex;
+        private readonly HashSet<int> _playedStepIndices = new();
 
         public void Interact()
         {
             if (npcDefinition == null) return;
-            if (GameDialogService.Instance == null)
-            {
-                Debug.LogWarning("NpcInteractable: GameDialogService.Instance is null.");
-                return;
-            }
-
+            if (GameDialogService.Instance == null) return;
+            
+            ResolveDialogueStepBeforeInteraction();
+            
             NpcDialogueStep step = GetCurrentStep();
             if (step == null)
             {
                 Debug.LogWarning($"NpcInteractable: no valid dialogue step for NPC '{npcDefinition.DisplayName}'.");
                 return;
             }
-
+            
+            if (step.PlayOnlyOnce && _playedStepIndices.Contains(_currentDialogueStepIndex)) return;
+            
             if (string.IsNullOrWhiteSpace(step.DialogId))
             {
                 Debug.LogWarning($"NpcInteractable: empty dialogId on current step for NPC '{npcDefinition.DisplayName}'.");
                 return;
             }
-            
-            Debug.Log($"Interacted with NPC: {npcDefinition.NpcID}");
-
+;
             GameDialogService.Instance.PlayDialog(step.DialogId, HandleDialogFinished);
         }
 
+        private void ResolveDialogueStepBeforeInteraction()
+        {
+            NpcDialogueStep step = GetCurrentStep();
+
+            while (step != null && step.LoopUntilConditionMet && IsStepAdvanceConditionMet(step))
+            {
+                int previousIndex = _currentDialogueStepIndex;
+                AdvanceToNextStep();
+                
+                if (_currentDialogueStepIndex == previousIndex) break;
+                
+                step = GetCurrentStep();
+            }
+        }
+        
         private void HandleDialogFinished()
         {
             NpcDialogueStep step = GetCurrentStep();
             if (step == null) return;
+            
+            _playedStepIndices.Add(_currentDialogueStepIndex);
             
             TryAdvanceDialogueStep(step);
         }
@@ -51,15 +67,7 @@ namespace _Project.Scripts.Interactions
         private void TryAdvanceDialogueStep(NpcDialogueStep step)
         {
             if (step == null) return;
-            
-            bool conditionMet = IsStepAdvanceConditionMet(step);
-
-            if (step.LoopUntilConditionMet)
-            {
-                if (conditionMet) AdvanceToNextStep();
-                
-                return;
-            }
+            if (step.LoopUntilConditionMet) return;
 
             if (step.PlayOnlyOnce) AdvanceToNextStep();
         }

@@ -13,6 +13,7 @@ namespace _Project.Scripts.Systems
         private GuideProgress _currentGuideProgress;
         
         public GuideProgress CurrentGuideProgress => _currentGuideProgress;
+        public bool HasActiveGuide => _currentGuideProgress != null && !_currentGuideProgress.IsCompleted;
         
         public event Action<GuideObjectiveDefinition> OnObjectiveStarted;
         public event Action<GuideObjectiveDefinition> OnObjectiveCompleted;

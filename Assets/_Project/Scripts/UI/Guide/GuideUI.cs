@@ -12,14 +12,9 @@ namespace _Project.Scripts.UI.Guide
         [SerializeField] private TextMeshProUGUI objectiveDescriptionText;
         [SerializeField] private GameObject panelRoot;
 
-        private void Start()
-        {
-            SubscribeToEvents();
-            Refresh();
-        }
-
         private void OnEnable()
         {
+            SubscribeToEvents();
             Refresh();
         }
 
@@ -77,7 +72,8 @@ namespace _Project.Scripts.UI.Guide
 
         private void HandleGuideCompleted()
         {
-            Refresh();
+            if (panelRoot != null) panelRoot.SetActive(false);
+            SetEmpty();
         }
 
         private void SubscribeToEvents()

@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.Core.Data.Guide;
 using _Project.Scripts.Core.Data.Investigation;
 using _Project.Scripts.Systems;
@@ -9,6 +8,7 @@ namespace _Project.Scripts.Interactions
     public class InspectableObject : MonoBehaviour, IInteractable
     {
         [SerializeField] private InvestigationTarget investigationTarget;
+        [SerializeField] private GuideObjectiveReporter objectiveReporter;
         [SerializeField] private bool canInteractOnlyOnce = true;
         
         private bool _hasBeenInspected;
@@ -16,6 +16,7 @@ namespace _Project.Scripts.Interactions
         private void Awake()
         {
             if (investigationTarget == null) investigationTarget = GetComponent<InvestigationTarget>();
+            if (objectiveReporter == null) objectiveReporter = GetComponent<GuideObjectiveReporter>();
         }
 
         public void Interact()
@@ -26,8 +27,13 @@ namespace _Project.Scripts.Interactions
             if (InvestigationManager.Instance == null) return;
             
             InvestigationManager.Instance.AddClue(investigationTarget.ClueFragment);
-            Debug.Log($"clue added: {investigationTarget.ClueFragment.DisplayName}");
+            if (objectiveReporter != null)
+            {
+                objectiveReporter.ReportObjective();
+                Debug.Log($"Reported {objectiveReporter.ObjectiveID}");
+            }
             _hasBeenInspected = true;
+            Debug.Log($"clue added: {investigationTarget.ClueFragment.DisplayName}");
         }
     }
 }

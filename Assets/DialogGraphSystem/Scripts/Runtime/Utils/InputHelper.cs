@@ -2,7 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 
-namespace DialogSystem.Runtime.Utils
+namespace DialogSystem.DialogGraphSystem.Scripts.Runtime.Utils
 {
     /// <summary>
     /// Centralized input utilities (legacy + new Input System via reflection) + XR.
@@ -34,7 +34,7 @@ namespace DialogSystem.Runtime.Utils
 #if ENABLE_INPUT_SYSTEM
             try
             {
-                if (WasPressedThisFrameOnControl(_keyboardType, "current", "anyKey")) return RegisterAdvance();
+                if (WasPressedThisFrameOnControl(_keyboardType, "current", "spaceKey")) return RegisterAdvance();
                 if (WasPressedThisFrameOnControl(_mouseType, "current", "leftButton")) return RegisterAdvance();
                 if (WasPressedThisFrameOnNestedControl(_touchType, "current", "primaryTouch", "press")) return RegisterAdvance();
 

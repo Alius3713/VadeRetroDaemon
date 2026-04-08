@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.Core;
+using _Project.Scripts.Systems;
 using DialogSystem.Runtime.Core;
 using UnityEngine;
 
@@ -67,9 +68,9 @@ namespace _Project.Scripts.Dialogue
             _isDialogPlaying = false;
             InputLock.SetOccupied(false);
             
-            RestoreOptionalUIVisibility();
-            
             onDialogFinished?.Invoke();
+            
+            RestoreOptionalUIVisibility();
         }
         
         private void CacheOptionalUIVisibility()
@@ -93,7 +94,7 @@ namespace _Project.Scripts.Dialogue
 
         private void RestoreOptionalUIVisibility()
         {
-            if (_wasGuideUIVisibleBeforeDialog && guideUIPanelRoot != null)
+            if (_wasGuideUIVisibleBeforeDialog && guideUIPanelRoot != null && GuideManager.Instance != null && GuideManager.Instance.HasActiveGuide)
             {
                 guideUIPanelRoot.SetActive(true);
             }

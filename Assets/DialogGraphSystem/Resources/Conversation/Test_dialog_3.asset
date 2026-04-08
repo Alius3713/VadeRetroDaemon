@@ -17,17 +17,21 @@ MonoBehaviour:
     toGuid: 4f8c26c512344420971a715b45f6e260
     fromPortIndex: 0
   - fromGuid: 4f8c26c512344420971a715b45f6e260
+    toGuid: 33a8ff62f6f146809ae9bc7fb4bd8fb2
+    fromPortIndex: 0
+  - fromGuid: 33a8ff62f6f146809ae9bc7fb4bd8fb2
     toGuid: 184a251ec09d46eead1a2da7bf726e5a
     fromPortIndex: 0
   nodes:
   - {fileID: 3692209776879128279}
   choiceNodes: []
-  actionNodes: []
+  actionNodes:
+  - {fileID: 4940046824208045994}
   startGuid: 1397d329d77b4542a73e475c6255e4d1
   startPosition: {x: -320, y: 80}
   startInitialized: 1
   endGuid: 184a251ec09d46eead1a2da7bf726e5a
-  endPosition: {x: 720, y: 80}
+  endPosition: {x: 997, y: 98}
   endInitialized: 1
 --- !u!114 &3692209776879128279
 MonoBehaviour:
@@ -48,3 +52,21 @@ MonoBehaviour:
   questionText: Oh, so you set that clue was on an orange square?! Amazing.
   dialogAudio: {fileID: 0}
   displayTime: 0
+--- !u!114 &4940046824208045994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cd3f917fb000a419dc8116722bd53e, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: DialogSystem.Runtime::DialogSystem.Runtime.Models.Nodes.ActionNode
+  GUID: 33a8ff62f6f146809ae9bc7fb4bd8fb2
+  nodePosition: {x: 553, y: 69}
+  actionId: ReportReturn01
+  payloadJson: 
+  waitForCompletion: 0
+  waitSeconds: 0

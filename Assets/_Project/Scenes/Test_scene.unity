@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 43722287}
   - component: {fileID: 43722286}
   - component: {fileID: 43722290}
+  - component: {fileID: 43722291}
   m_Layer: 3
   m_Name: BlueNpc
   m_TagString: Untagged
@@ -288,6 +289,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Guide.GuideObjectiveReporter
   objectiveID: GO00
   reportOnlyOnce: 1
+--- !u!114 &43722291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43722284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd05f34ec09a5f74aa6664188d47324b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Guide.GuideObjectiveReporter
+  objectiveID: GO02
+  reportOnlyOnce: 1
 --- !u!1 &370858582
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +316,7 @@ GameObject:
   - component: {fileID: 370858583}
   - component: {fileID: 370858587}
   - component: {fileID: 370858586}
+  - component: {fileID: 370858588}
   m_Layer: 3
   m_Name: interactable_1
   m_TagString: InspectableObject
@@ -441,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Interactions.InspectableObject
   investigationTarget: {fileID: 370858587}
+  objectiveReporter: {fileID: 370858588}
   canInteractOnlyOnce: 1
 --- !u!114 &370858587
 MonoBehaviour:
@@ -455,6 +472,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Investigation.InvestigationTarget
   clueFragment: {fileID: 11400000, guid: e0396e1603bc0264d903cd0a2d8872f6, type: 2}
+--- !u!114 &370858588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370858582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd05f34ec09a5f74aa6664188d47324b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Guide.GuideObjectiveReporter
+  objectiveID: GO01
+  reportOnlyOnce: 1
 --- !u!1 &492895510
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Interactions.InspectableObject
   investigationTarget: {fileID: 492895512}
+  objectiveReporter: {fileID: 0}
   canInteractOnlyOnce: 1
 --- !u!114 &492895512
 MonoBehaviour:
@@ -1015,6 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Interactions.InspectableObject
   investigationTarget: {fileID: 1499883863}
+  objectiveReporter: {fileID: 0}
   canInteractOnlyOnce: 1
 --- !u!114 &1499883863
 MonoBehaviour:
@@ -1261,6 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Interactions.InspectableObject
   investigationTarget: {fileID: 1660668984}
+  objectiveReporter: {fileID: 0}
   canInteractOnlyOnce: 1
 --- !u!114 &1660668984
 MonoBehaviour:
@@ -1501,14 +1535,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.data[0].actionId
       value: ReportTalk01
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].actionId
+      value: ReportReturn01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
@@ -1516,11 +1558,35 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 43722290}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 43722290}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 43722291}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
@@ -1528,11 +1594,35 @@ PrefabInstance:
       value: ReportObjective
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReportObjective
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReportObjective
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: _Project.Scripts.Core.Data.Guide.GuideObjectiveReporter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: _Project.Scripts.Core.Data.Guide.GuideObjectiveReporter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _Project.Scripts.Core.Data.Guide.GuideObjectiveReporter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[0].onInvoke.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929784589571989023, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: global.bindings.Array.data[1].onInvoke.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
