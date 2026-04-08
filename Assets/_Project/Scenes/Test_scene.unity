@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &28197947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 260742170931519189, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
+  m_PrefabInstance: {fileID: 1893825316900439001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!114 &30218192 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1079906837678901819, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
@@ -738,6 +749,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &840323346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1199335320063728018, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
+  m_PrefabInstance: {fileID: 1893825316900439001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1195771090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1451,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065969417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5600128664906900046, guid: 8c95ea07712019145ae8b7601120dce5, type: 3}
+  m_PrefabInstance: {fileID: 1893825316900439001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &549867742908876403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1522,9 +1555,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: notebookButton
+      value: 
+      objectReference: {fileID: 2065969417}
+    - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: demonariumButton
+      value: 
+      objectReference: {fileID: 840323346}
+    - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: guideUIPanelRoot
       value: 
       objectReference: {fileID: 1893825316900439003}
+    - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
+      propertyPath: preparationButton
+      value: 
+      objectReference: {fileID: 28197947}
     - target: {fileID: 7709520588125745143, guid: 35309ead2643b094e995de12ad6f8a6c, type: 3}
       propertyPath: notebookUIPanelRoot
       value: 

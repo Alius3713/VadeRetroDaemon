@@ -1,5 +1,5 @@
-using System;
 using _Project.Scripts.Core;
+using _Project.Scripts.Dialogue;
 using _Project.Scripts.UI.Demonarium;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +14,8 @@ namespace _Project.Scripts.UI.Preparation
         [SerializeField] private DemonariumBookPanelController demonariumBookPanelController;
         
         private InputAction _togglePreparationAction;
+        private InputAction _cancelAction;
+        
         private bool _isOpen;
         
         public bool IsOpen => _isOpen;
@@ -21,6 +23,7 @@ namespace _Project.Scripts.UI.Preparation
         private void Awake()
         {
             _togglePreparationAction = InputSystem.actions.FindAction("TogglePreparation");
+            _cancelAction = InputSystem.actions.FindAction("Cancel");
 
             if (_togglePreparationAction == null)
             {
@@ -41,6 +44,8 @@ namespace _Project.Scripts.UI.Preparation
             {
                 _togglePreparationAction.performed += OnTogglePreparationPerformed;
             }
+
+            if (_cancelAction != null) _cancelAction.performed += HandleCancel;
         }
 
         private void OnDisable()
@@ -49,10 +54,15 @@ namespace _Project.Scripts.UI.Preparation
             {
                 _togglePreparationAction.performed -= OnTogglePreparationPerformed;
             }
+
+            if (_cancelAction != null) _cancelAction.performed -= HandleCancel;
         }
 
         public void TogglePrepWindow()
         {
+            if (WindowsInputLock.Occupied) return;
+            if (GameDialogService.Instance != null && GameDialogService.Instance.IsDialogPlaying) return;
+            
             if (_isOpen)
             {
                 ClosePrepWindow();
@@ -65,6 +75,9 @@ namespace _Project.Scripts.UI.Preparation
 
         public void OpenPrepWindow()
         {
+            if (WindowsInputLock.Occupied) return;
+            if (GameDialogService.Instance != null && GameDialogService.Instance.IsDialogPlaying) return;
+            
             if (_isOpen) return;
             if (preparationPanel == null) return;
 
@@ -93,7 +106,15 @@ namespace _Project.Scripts.UI.Preparation
 
         private void OnTogglePreparationPerformed(InputAction.CallbackContext context)
         {
+            if (WindowsInputLock.Occupied) return;
             TogglePrepWindow();
+        }
+
+        private void HandleCancel(InputAction.CallbackContext ctx)
+        {
+            if (WindowsInputLock.Occupied) return;
+            if (!_isOpen) return;
+            ClosePrepWindow();
         }
     }
 }

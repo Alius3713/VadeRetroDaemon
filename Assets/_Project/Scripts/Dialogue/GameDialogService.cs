@@ -3,6 +3,7 @@ using _Project.Scripts.Core;
 using _Project.Scripts.Systems;
 using DialogSystem.Runtime.Core;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Project.Scripts.Dialogue
 {
@@ -13,7 +14,12 @@ namespace _Project.Scripts.Dialogue
         [Header("Optional UI References")]
         [SerializeField] private GameObject guideUIPanelRoot;
         [SerializeField] private GameObject notebookUIPanelRoot;
-
+        
+        [Header("Window Trigger Buttons")]
+        [SerializeField] private Button notebookButton;
+        [SerializeField] private Button demonariumButton;
+        [SerializeField] private Button preparationButton;
+        
         private bool _isDialogPlaying;
         
         private bool _wasGuideUIVisibleBeforeDialog;
@@ -56,9 +62,11 @@ namespace _Project.Scripts.Dialogue
             
             _isDialogPlaying = true;
             InputLock.SetOccupied(true);
+            WindowsInputLock.SetOccupied(true);
             
             CacheOptionalUIVisibility();
             HideOptionalUIThatWasVisible();
+            SetWindowButtonsActive(false);
             
             DialogManager.Instance.PlayDialogByID(dialogId, onDialogEnded:() => HandleDialogEnded(onDialogFinished));
         }
@@ -67,10 +75,12 @@ namespace _Project.Scripts.Dialogue
         {
             _isDialogPlaying = false;
             InputLock.SetOccupied(false);
+            WindowsInputLock.SetOccupied(false);
             
             onDialogFinished?.Invoke();
             
             RestoreOptionalUIVisibility();
+            SetWindowButtonsActive(true);
         }
         
         private void CacheOptionalUIVisibility()
@@ -106,6 +116,13 @@ namespace _Project.Scripts.Dialogue
 
             _wasGuideUIVisibleBeforeDialog = false;
             _wasNotebookUIVisibleBeforeDialog = false;
+        }
+
+        private void SetWindowButtonsActive(bool active)
+        {
+            if (notebookButton) notebookButton.gameObject.SetActive(active);
+            if (demonariumButton) demonariumButton.gameObject.SetActive(active);
+            if (preparationButton) preparationButton.gameObject.SetActive(active);
         }
     }
 }

@@ -1,4 +1,5 @@
-using System;
+using _Project.Scripts.Core;
+using _Project.Scripts.Dialogue;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,11 +11,14 @@ namespace _Project.Scripts.UI.Investigation
         [SerializeField] private InvestigationNotebookUI notebookUI;
         
         private InputAction _toggleNotebookAction;
+        private InputAction _cancelAction;
+        
         private bool _isOpen;
 
         private void Awake()
         {
             _toggleNotebookAction = InputSystem.actions.FindAction("ToggleNotebook");
+            _cancelAction = InputSystem.actions.FindAction("Cancel");
             
             if (notebookUI == null) notebookUI = FindFirstObjectByType<InvestigationNotebookUI>();
             
@@ -33,6 +37,8 @@ namespace _Project.Scripts.UI.Investigation
             {
                 _toggleNotebookAction.performed += OnToggleNotebookPerformed;
             }
+            
+            if (_cancelAction != null) _cancelAction.performed += HandleCancel;
         }
 
         private void OnDestroy()
@@ -41,10 +47,15 @@ namespace _Project.Scripts.UI.Investigation
             {
                 _toggleNotebookAction.performed -= OnToggleNotebookPerformed;
             }
+
+            if (_cancelAction != null) _cancelAction.performed -= HandleCancel;
         }
 
         public void ToggleNotebook()
         {
+            if (WindowsInputLock.Occupied) return;
+            if (GameDialogService.Instance != null && GameDialogService.Instance.IsDialogPlaying) return;
+            
             if (_isOpen)
             {
                 CloseNotebook();
@@ -57,6 +68,9 @@ namespace _Project.Scripts.UI.Investigation
 
         public void OpenNotebook()
         {
+            if (WindowsInputLock.Occupied) return;
+            if (GameDialogService.Instance != null && GameDialogService.Instance.IsDialogPlaying) return;
+            
             if (_isOpen) return;
             if (notebookPanel == null) return;
             
@@ -76,7 +90,15 @@ namespace _Project.Scripts.UI.Investigation
         
         private void OnToggleNotebookPerformed(InputAction.CallbackContext obj)
         {
+            if (WindowsInputLock.Occupied) return;
             ToggleNotebook();
+        }
+
+        private void HandleCancel(InputAction.CallbackContext ctx)
+        {
+            if (WindowsInputLock.Occupied) return;
+            if (!_isOpen) return;
+            CloseNotebook();
         }
     }
 }

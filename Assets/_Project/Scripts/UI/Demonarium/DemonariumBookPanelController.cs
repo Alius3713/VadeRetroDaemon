@@ -1,4 +1,5 @@
 using _Project.Scripts.Core;
+using _Project.Scripts.Dialogue;
 using _Project.Scripts.UI.Preparation;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,8 @@ namespace _Project.Scripts.UI.Demonarium
         [SerializeField] private PreparationPanelController preparationPanelController;
         
         private InputAction _toggleDemonariumAction;
+        private InputAction _cancelAction;
+        
         private bool _isOpen;
         
         public bool IsOpen => _isOpen;
@@ -19,6 +22,7 @@ namespace _Project.Scripts.UI.Demonarium
         private void Awake()
         {
             _toggleDemonariumAction = InputSystem.actions.FindAction("ToggleDemonarium");
+            _cancelAction = InputSystem.actions.FindAction("Cancel");
 
             if (_toggleDemonariumAction == null)
             {
@@ -39,6 +43,8 @@ namespace _Project.Scripts.UI.Demonarium
             {
                 _toggleDemonariumAction.performed += OnToggleDemonariumPerformed;
             }
+
+            if (_cancelAction != null) _cancelAction.performed += HandleCancel;
         }
 
         private void OnDisable()
@@ -47,10 +53,15 @@ namespace _Project.Scripts.UI.Demonarium
             {
                 _toggleDemonariumAction.performed -= OnToggleDemonariumPerformed;
             }
+
+            if (_cancelAction != null) _cancelAction.performed -= HandleCancel;
         }
         
         public void ToggleBook()
         {
+            if (WindowsInputLock.Occupied) return;
+            if (GameDialogService.Instance != null && GameDialogService.Instance.IsDialogPlaying) return;
+            
             if (_isOpen)
             {
                 CloseBook();
@@ -63,6 +74,9 @@ namespace _Project.Scripts.UI.Demonarium
 
         public void OpenBook()
         {
+            if (WindowsInputLock.Occupied) return;
+            if (GameDialogService.Instance != null && GameDialogService.Instance.IsDialogPlaying) return;
+            
             if (_isOpen) return;
             if (demonariumBookPanel == null) return;
 
@@ -90,7 +104,15 @@ namespace _Project.Scripts.UI.Demonarium
 
         private void OnToggleDemonariumPerformed(InputAction.CallbackContext ctx)
         {
+            if (WindowsInputLock.Occupied) return;
             ToggleBook();
+        }
+
+        private void HandleCancel(InputAction.CallbackContext ctx)
+        {
+            if (WindowsInputLock.Occupied) return;
+            if (!_isOpen) return;
+            CloseBook();
         }
     }
 }
