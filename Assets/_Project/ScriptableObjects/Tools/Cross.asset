@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cross
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Core.Data.Tools.ToolDefinition
   toolID: T01
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 498297570827492035, guid: e5fd3977ec3ac774eba47939bfd7d622, type: 3}
   displayName: Cross
   description: Pocket cross - essential tool of the exorcist.
   isUnlockedByDefault: 1
