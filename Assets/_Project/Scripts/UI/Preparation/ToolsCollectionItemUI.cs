@@ -66,7 +66,8 @@ namespace _Project.Scripts.UI.Preparation
 
             if (Time.unscaledTime - _lastClickTime <= DoubleClickThreshold)
             {
-                TryRemoveFromLoadoutByDoubleClick();
+                _owner.HandleCollectionToolDoubleClicked(_tool);
+                // TryRemoveFromLoadoutByDoubleClick();
                 _lastClickTime = 0f;
                 return;
             }

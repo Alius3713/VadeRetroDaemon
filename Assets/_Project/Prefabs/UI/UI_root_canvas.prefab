@@ -4127,6 +4127,7 @@ GameObject:
   - component: {fileID: 9152404868379907927}
   - component: {fileID: 9136932732961962188}
   - component: {fileID: 6758212907061782420}
+  - component: {fileID: 5074718478927120051}
   m_Layer: 5
   m_Name: UI_root_canvas
   m_TagString: Untagged
@@ -4282,6 +4283,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.UI.Preparation.ToolDragVisualController
   canvas: {fileID: 3100347308687641400}
   ghostImage: {fileID: 703378113064587339}
+--- !u!114 &5074718478927120051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854223761575271097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dd59548cb457c4bb468ba1d5e11393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.UI.Guide.GuideUI
+  objectiveTitleText: {fileID: 7662692397099006538}
+  objectiveDescriptionText: {fileID: 9091147370882691429}
+  panelRoot: {fileID: 9101088696562508365}
 --- !u!1 &6855150791400022414
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,7 +6301,6 @@ GameObject:
   - component: {fileID: 6902305734345316978}
   - component: {fileID: 4677944580242377621}
   - component: {fileID: 595909981288909640}
-  - component: {fileID: 7472356673064436132}
   m_Layer: 5
   m_Name: Guide_Panel
   m_TagString: Untagged
@@ -6352,18 +6367,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7472356673064436132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9101088696562508365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17dd59548cb457c4bb468ba1d5e11393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.UI.Guide.GuideUI
-  objectiveTitleText: {fileID: 7662692397099006538}
-  objectiveDescriptionText: {fileID: 9091147370882691429}
-  panelRoot: {fileID: 9101088696562508365}

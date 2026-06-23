@@ -66,35 +66,64 @@ namespace _Project.Scripts.UI.Preparation
         public void HandleCollectionToolClicked(ToolDefinition tool)
         {
             if (tool == null) return;
+            
+            _selectedCollectionTool = _selectedCollectionTool == tool ? null : tool;
+            
+            RefreshCollectionSelectionVisuals();
+            
+            // if (tool == null) return;
+            // if (PreparationManager.Instance == null) return;
+            //
+            // PreparationLoadout loadout = PreparationManager.Instance.CurrentLoadout;
+            // if (loadout == null) return;
+            //
+            // bool isCurrentlySelected = _selectedCollectionTool == tool;
+            // bool isAlreadyInLoadout = loadout.ContainsTool(tool);
+            //
+            // if (!isCurrentlySelected)
+            // {
+            //     _selectedCollectionTool = tool;
+            //     RefreshCollectionSelectionVisuals();
+            //     return;
+            // }
+            //
+            // if (isAlreadyInLoadout)
+            // {
+            //     _selectedCollectionTool = null;
+            //     RefreshCollectionSelectionVisuals();
+            //     return;
+            // }
+            //
+            // bool added = PreparationManager.Instance.TryAddToolToFirstEmptySlot(tool);
+            //
+            // if (!added) _selectedCollectionTool = null;
+            //
+            // RefreshCollectionSelectionVisuals();
+        }
+
+        public void HandleCollectionToolDoubleClicked(ToolDefinition tool)
+        {
+            if (tool == null) return;
             if (PreparationManager.Instance == null) return;
             
             PreparationLoadout loadout = PreparationManager.Instance.CurrentLoadout;
             if (loadout == null) return;
-            
-            bool isCurrentlySelected = _selectedCollectionTool == tool;
-            bool isAlreadyInLoadout = loadout.ContainsTool(tool);
 
-            if (!isCurrentlySelected)
+            int slotIndex = loadout.GetSlotIndexOfTool(tool);
+
+            if (slotIndex >= 0)
             {
-                _selectedCollectionTool = tool;
-                RefreshCollectionSelectionVisuals();
-                return;
+                PreparationManager.Instance.RemoveToolFromSlot(slotIndex);
+            }
+            else
+            {
+                PreparationManager.Instance.TryAddToolToFirstEmptySlot(tool);
             }
 
-            if (isAlreadyInLoadout)
-            {
-                _selectedCollectionTool = null;
-                RefreshCollectionSelectionVisuals();
-                return;
-            }
-            
-            bool added = PreparationManager.Instance.TryAddToolToFirstEmptySlot(tool);
-            
-            if (!added) _selectedCollectionTool = null;
-            
+            _selectedCollectionTool = null;
             RefreshCollectionSelectionVisuals();
         }
-
+        
         public bool TryPlaceToolIntoSlot(ToolDefinition tool, int slotIndex)
         {
             if (PreparationManager.Instance == null) return false;

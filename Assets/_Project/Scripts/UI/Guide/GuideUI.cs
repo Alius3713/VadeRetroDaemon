@@ -98,7 +98,7 @@ namespace _Project.Scripts.UI.Guide
 
         private void SetEmpty()
         {
-            // if (panelRoot != null) panelRoot.SetActive(false);
+            if (panelRoot != null) panelRoot.SetActive(false);
             if (objectiveTitleText != null) objectiveTitleText.text = string.Empty;
             if (objectiveDescriptionText != null) objectiveDescriptionText.text = string.Empty;
         }

@@ -23,7 +23,7 @@ namespace _Project.Scripts.Camera
 
         private void Start()
         {
-            if (target != null) _previousTargetPosition = target.position;
+            if (target != null) SnapToTarget();
         }
 
         private void LateUpdate()
@@ -51,6 +51,21 @@ namespace _Project.Scripts.Camera
             
             transform.position = smoothedPosition;
             _previousTargetPosition = currentTargetPosition;
+        }
+
+        private void SnapToTarget()
+        {
+            if (!target) return;
+
+            Vector3 targetPosition = target.position + offset;
+
+            if (cameraBounds != null)
+            {
+                targetPosition = cameraBounds.ClampPosition(targetPosition);
+            }
+            
+            transform.position = targetPosition;
+            _previousTargetPosition = targetPosition;
         }
     }
 }
